@@ -1,5 +1,7 @@
 # Turtology
 
+Turtology lets you run LOGO in your browser.  It borrows heavily from [Seymour Papert's Javascript implementation](https://code.google.com/archive/p/papert/)
+
 ## Getting Started
 
 After you have cloned this repo, run this setup script to set up your machine
@@ -27,10 +29,3 @@ programming in style.
 * [Best Practices](http://github.com/thoughtbot/guides/blob/master/best-practices)
 * [Style](http://github.com/thoughtbot/guides/blob/master/style)
 
-## Deploying
-
-If you have previously run the `./bin/setup` script,
-you can deploy to staging and production with:
-
-    $ ./bin/deploy staging
-    $ ./bin/deploy production

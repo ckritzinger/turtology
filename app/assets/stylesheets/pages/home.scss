@@ -1,0 +1,28 @@
+.home {
+  &.home-draw {
+    #right, #left {
+      @include span-columns(6);
+      padding: 0 $padding-default;
+    }
+    .ide{
+      position: relative;
+    }
+    canvas {
+      border: 1px solid black;
+    }
+    .CodeMirror {
+      border: 1px solid #eee;
+      height: auto;
+      max-height: 20em;
+      margin-bottom: $padding-default;
+    }
+    .stdout {
+      margin-top: $padding-default;
+      #textOutput {
+        min-height: 5em;
+        font-family: Courier;
+        border: 1px solid lightgrey;
+      }
+    }
+  }
+}

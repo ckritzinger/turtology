@@ -1,0 +1,26 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.head {
+  h1 {
+    font-family: Courier;
+    padding: $padding-default 0 $padding-default $padding-default;
+    display: inline;
+  }
+  p {
+    display: inline;
+    padding-left: $padding-default;
+  }
+}

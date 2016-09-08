@@ -1,0 +1,48 @@
+<div id="content">
+  <div class="inner">
+    <div id="right">
+      <div class="ide">
+        <textarea name="code" id="code">
+TO tree :size
+   if :size < 5 [forward :size back :size stop]
+   forward :size/3
+   COLOR [255 0 0]
+   left 30 tree :size*2/3 right 30
+   forward :size/6
+   COLOR [0 255 0]
+   right 25 tree :size/2 left 25
+   forward :size/3
+   COLOR [0 0 255]
+   right 25 tree :size/2 left 25
+   COLOR [100 100 100]
+   forward :size/6
+   back :size
+END
+clearscreen
+setxy 250 500
+tree 150
+        </textarea>
+      </div>
+      <div>
+        <input type="button" onClick="run(5,false);" value="run slowly" style="font-weight: bold;"/>
+        <input type="button" onClick="run(0,false);" value="run fast"/>
+        <input type="button" onClick="stop();" value="stop"/>
+        <input type="hidden" name="img"/>
+      </div>
+      <div class="stdout">
+        <h5>Text Output</h5>
+        <div id="textOutput"></div>
+      </div>
+    </div>
+    <div id="left">
+      <canvas id="canvas" width="500" height="500">
+        Your browser doesn't support canvas tags. Please upgrade to a modern browser.
+      </canvas>
+      <div id="turtle">
+        <embed width="20" height="20" id='sprite' src="turtle.svg"/>
+      </div>
+      <input type="button" onClick="document.location.href = canvas.toDataURL().replace('image/png', 'image/octet-stream')" value="save as png"/>
+      <input type="button" onClick="clearcanvas();" value="clear"/>
+    </div>
+  </div>
+</div>

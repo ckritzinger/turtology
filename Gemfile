@@ -64,3 +64,12 @@ gem 'high_voltage'
 gem 'bourbon', '5.0.0.beta.6'
 gem 'neat', '~> 1.8.0'
 gem 'refills', group: [:development, :test]
+
+gem 'dragonfly'
+gem 'dragonfly-s3_data_store'
+
+gem 'devise'
+gem 'tortoise'
+gem 'remotipart', github: 'mshibuya/remotipart'
+gem 'rails_admin', github: 'sferik/rails_admin'
+gem 'config'

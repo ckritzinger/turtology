@@ -1,0 +1,40 @@
+host:
+  name: <%= ENV['HOST_NAME'] || 'localhost' %>
+  port: <%= ENV['HOST_PORT'] || '3000' %>
+  scheme: <%= ENV['HOST_SCHEME'] || 'http' %>
+  # Should be set to a CDN endpoint; allows content to be served from different location to site
+  assets_base: <%= ENV['HOST_ASSETS_BASE'] || 'http://localhost:3000' %>
+
+general:
+  contact_email: <%= ENV['GENERAL_CONTACT_EMAIL'] || "Popcorn Cloud <hello@popcorncloud.com>" %>
+  # See secrets.yml this will raise an exception in production if the key isn't set
+  # Default for dev and test is in secrets.yml (rails standard)
+  secret_key_base: <%= ENV['GENERAL_SECRET_KEY_BASE'] %>
+  timezone: <%=  ENV['GENERAL_TIMEZONE'] || "Africa/Johannesburg" %>
+  subdomain_pattern: <%=  ENV['GENERAL_SUBDOMAIN_PATTERN'] || "" %>
+
+s3:
+  region: <%= ENV['S3_REGION'] || 'us-east-1' %>
+  bucket_name: <%= ENV['S3_BUCKET'] || 'popcorn-media' %>
+  access_key_id: <%= ENV['S3_KEY']%>
+  secret_access_key: <%= ENV['S3_SECRET'] %>
+
+rails_admin:
+  # , seperated list of admin user
+  admin_white_list: <%= ENV['RAILS_ADMIN_ADMIN_WHITE_LIST'] || ['ckritzinger@gmail.com', 'bob@bob.com'].join(',') %>
+
+#http://www.leemunroe.com/send-automated-email-ruby-rails-mailgun/
+#Use smtp because then we get to use rails magic templates and mailers
+mailgun:
+  smtp_login: <%= ENV['MAILGUN_SMTP_LOGIN'] || 'postmaster@app22499808.mailgun.org' %>
+  smtp_domain: <%= ENV['MAILGUN_DOMAIN'] || 'app22499808.mailgun.org' %>
+  smtp_password: <%= ENV['MAILGUN_SMTP_PASSWORD'] || '' %> #15xfeoyomkc9
+
+pagination:
+  dashboard:
+    results: <%= ENV['PAGINATION_DASHBOARD_INVITATIONS'] || 25 %>
+    answers: <%= ENV['PAGINATION_DASHBOARD_ANSWERS'] || 25 %>
+
+rack:
+  session:
+    secret:  <%= ENV["RACK_SESSION"] || 'change_me' %>

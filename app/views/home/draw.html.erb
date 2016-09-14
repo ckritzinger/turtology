@@ -2,32 +2,22 @@
   <div class="inner">
     <div id="right">
       <div class="ide">
+        <%= form_tag save_path, remote: true, id: 'project-form' do -%>
         <textarea name="code" id="code">
-TO tree :size
-   if :size < 5 [forward :size back :size stop]
-   forward :size/3
-   COLOR [255 0 0]
-   left 30 tree :size*2/3 right 30
-   forward :size/6
-   COLOR [0 255 0]
-   right 25 tree :size/2 left 25
-   forward :size/3
-   COLOR [0 0 255]
-   right 25 tree :size/2 left 25
-   COLOR [100 100 100]
-   forward :size/6
-   back :size
+TO spiral
+  make "step 0.1
+  REPEAT 500 [FD :step RT 5 make "step :step + 0.01]
 END
-clearscreen
-setxy 250 500
-tree 150
+setxy 250 250
+spiral
         </textarea>
+        <%= hidden_field_tag 'imagedata' -%>
+        <% end -%>
       </div>
       <div>
         <input type="button" onClick="run(5,false);" value="run slowly" style="font-weight: bold;"/>
         <input type="button" onClick="run(0,false);" value="run fast"/>
-        <input type="button" onClick="stop();" value="stop"/>
-        <input type="hidden" name="img"/>
+        <input type="button" onClick="saveProject();" value="save project"/>
       </div>
       <div class="stdout">
         <h5>Text Output</h5>
@@ -41,8 +31,6 @@ tree 150
       <div id="turtle">
         <embed width="20" height="20" id='sprite' src="turtle.svg"/>
       </div>
-      <input type="button" onClick="document.location.href = canvas.toDataURL().replace('image/png', 'image/octet-stream')" value="save as png"/>
-      <input type="button" onClick="clearcanvas();" value="clear"/>
     </div>
   </div>
 </div>

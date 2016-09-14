@@ -38,12 +38,10 @@ function init(canvas_id, turtle_id, form_id, oldcode_id, textoutput_id) {
 
 function run(speed, drawbits) {
     turtle.stop();
+    clearcanvas();
     if (speed !== fast) {
         fast = speed;
-        var newturtle = null;
-        // newturtle = new Turtle(canvas);
-
-        newturtle = new DelayTurtle(canvas, sprite, fast, drawbits);
+        var newturtle = new DelayTurtle(canvas, sprite, fast, drawbits);
         logo.setTurtle(newturtle);
         turtle = newturtle;
     }
@@ -68,6 +66,11 @@ function clearcanvas() {
     ctx.fillStyle = "rgb(255,255,255)";
     ctx.fillRect(0, 0, 500, 500);
     textOutput.innerHTML = "";
+}
+
+function saveProject(){
+    $('#imagedata').val(canvas.toDataURL('image/png'));
+    $('#project-form').submit();
 }
 
 // accommodate Turbolinks

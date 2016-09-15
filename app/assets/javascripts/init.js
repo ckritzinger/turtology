@@ -73,10 +73,22 @@ function saveProject(){
     $('#project-form').submit();
 }
 
-// accommodate Turbolinks
-$('.home-draw').ready(function () {
-    cm = CodeMirror.fromTextArea(document.getElementById('code'),{
-        lineNumbers: true
+$(document).ready(function() {
+    console.log("looking for ide");
+    $('.ide').each(function() {
+        console.log("found ide, initialising");
+        cm = CodeMirror.fromTextArea(document.getElementById('code'), {
+            lineNumbers: true
+        });
+        init('canvas', 'turtle', 'input', 'oldcode', 'textOutput');
+        clearcanvas();
+        run(0, false);
+        $('#project-form').on('ajax:success',function(e,data,status,xhr){
+            if(data.success) {
+                $('#saved-notification').fadeIn(500, function(){$('#saved-notification').fadeOut(1000)});
+                console.log("saved")
+                $('#project_id').val(data.project_id);
+            }
+        });
     });
-    init('canvas','turtle','input','oldcode', 'textOutput'); clearcanvas(); run(0,false);
 });

@@ -1,0 +1,12 @@
+<div class="cards">
+  <% @projects.each do |project| %>
+      <div class="card" onclick="document.location.href='<%= edit_or_clone_path_for(project) %>'">
+        <div class="card-image">
+          <img src="<%= project.picture.url %>" alt="">
+        </div>
+        <div class="card-header">
+          <%= project.name || "No name project" %>
+        </div>
+      </div>
+  <% end %>
+</div>

@@ -1,6 +1,5 @@
 class HomeController < ApplicationController
   def index
-  end
-  def draw
+    @projects = Project.all
   end
 end

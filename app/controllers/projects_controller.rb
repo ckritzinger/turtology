@@ -12,7 +12,12 @@ class ProjectsController < ApplicationController
   end
 
   def clone
-    @project = Project.find(params[:project_id]).clone
+    orig = Project.find(params[:project_id]).clone
+    @project = Project.new(
+        source_code: orig.source_code,
+        picture: orig.picture,
+        name: 'Copy of ' + orig.name
+    )
     render 'edit'
   end
 

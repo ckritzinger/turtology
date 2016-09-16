@@ -12,17 +12,17 @@ class ProjectsController < ApplicationController
   end
 
   def clone
-    orig = Project.find(params[:project_id]).clone
-    @project = Project.new(
-        source_code: orig.source_code,
-        picture: orig.picture,
-        name: 'Copy of ' + orig.name
-    )
+    @project = Project.find(params[:project_id]).remix
     render 'edit'
   end
 
   def edit
     @project = current_user.projects.find(params[:project_id])
+  end
+
+  def like
+    current_user.like!(Project.find(params[:project_id]))
+    render json: {success: true}
   end
 
   def save

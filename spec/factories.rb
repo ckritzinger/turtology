@@ -1,4 +1,8 @@
 FactoryGirl.define do
+  factory :like do
+    project nil
+    user nil
+  end
   factory :project do
     name "MyString"
     user nil

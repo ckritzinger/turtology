@@ -115,6 +115,8 @@ GEM
     database_cleaner (1.5.3)
     debug_inspector (0.0.2)
     deep_merge (1.1.1)
+    default_value_for (3.0.2)
+      activerecord (>= 3.2.0, < 5.1)
     delayed_job (4.1.2)
       activesupport (>= 3.0, < 5.1)
     delayed_job_active_record (4.1.1)
@@ -147,6 +149,8 @@ GEM
     factory_girl_rails (4.7.0)
       factory_girl (~> 4.7.0)
       railties (>= 3.0.0)
+    faker (1.6.6)
+      i18n (~> 0.5)
     ffi (1.9.14)
     flutie (2.0.0)
     fog-aws (0.11.0)
@@ -380,12 +384,14 @@ DEPENDENCIES
   capybara-webkit
   config
   database_cleaner
+  default_value_for
   delayed_job_active_record
   devise
   dotenv-rails
   dragonfly
   dragonfly-s3_data_store
   factory_girl_rails
+  faker
   flutie
   font-awesome-rails
   formulaic

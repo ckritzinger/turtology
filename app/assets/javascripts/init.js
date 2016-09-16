@@ -9,12 +9,11 @@ var fast;
 var out;
 var DelayTurtle;
 var cm;
+var maxSpeed = 1000;
 
 function setup() {
     logo = new Logo();
-
-    fast = 0;
-    turtle = new DelayTurtle(canvas, sprite, fast, false);
+    turtle = new DelayTurtle(canvas, sprite, maxSpeed, false);
     logo.setTurtle(turtle);
     logo.setTextOutput(textOutput);
 }
@@ -39,18 +38,10 @@ function init(canvas_id, turtle_id, form_id, oldcode_id, textoutput_id) {
 function run(speed, drawbits) {
     turtle.stop();
     clearcanvas();
-    if (speed !== fast) {
-        fast = speed;
-        var newturtle = new DelayTurtle(canvas, sprite, fast, drawbits);
-        logo.setTurtle(newturtle);
-        turtle = newturtle;
-    }
-
-    //oldcode.innerHTML += "\n" + form.code.value;
-    //form.code.value = ""
-    cm.save()
+    logo.setTurtle(turtle = new DelayTurtle(canvas, sprite, speed, drawbits));
+    turtle.start();
+    cm.save();
     out = logo.run($('#code').val());
-
     if (out && out.type === "error") {
         alert(out.data);
         setup();
@@ -82,7 +73,7 @@ $(document).ready(function() {
         });
         init('canvas', 'turtle', 'input', 'oldcode', 'textOutput');
         clearcanvas();
-        run(0, false);
+        run(maxSpeed, false);
         $('#project-form').on('ajax:success',function(e,data,status,xhr){
             if(data.success) {
                 $('#saved-notification').fadeIn(500, function(){$('#saved-notification').fadeOut(1000)});

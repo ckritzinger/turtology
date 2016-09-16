@@ -296,27 +296,25 @@ function DelayTurtle (canvas, sprite, speed, draw_bits) {
     this.drawbits = (draw_bits == false) ? false : true;
 }
 
-DelayTurtle.prototype.start = function(){this.active = true; this.halt = false; this.pipeline = new Array(); this.paint();};
+DelayTurtle.prototype.start = function () {
+    this.active = true;
+    this.halt = false;
+    this.pipeline = new Array();
+    var t = this;
+    setInterval(function () {
+        t.paint();
+    }, 1);
+};
 DelayTurtle.prototype.finish = function(){this.active = false;};
 DelayTurtle.prototype.stop =  function(){this.halt = true;};
 
-DelayTurtle.prototype.paint = function() {
-    if (!this.halt) {
-        var redraw = this.active;
-        if (this.pipeline.length > 0) {
-            var c = 0;
-            do {
-                var fun = this.pipeline.shift();
-                fun.call()
-                redraw = true;
-                c++;
-            } while (this.speed <= 1 && c< 10 && this.pipeline.length >0)
-        } 
-        if (redraw) {
-            var that = this;
-            
-            setTimeout(function(){that.paint.call(that)},this.speed);
-        }
+DelayTurtle.prototype.paint = function () {
+    if(this.halt){return;}
+    var c = 0;
+    while (c < this.speed && this.pipeline.length > 0) {
+        var fun = this.pipeline.shift();
+        fun.call()
+        c++;
     }
 }
 

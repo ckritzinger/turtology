@@ -91,8 +91,8 @@ Turtle.prototype.update = function() {
         this.sprite.style['-ms-transform'] = rotate;
         this.sprite.style['-webkit-transform'] = rotate;
     } else {
-        this.turtle.style.left = "-10px";
-        this.turtle.style.top = "-10px";
+        this.turtle.style.left = "-100px";
+        this.turtle.style.top = "-100px";
     }   
 }
 

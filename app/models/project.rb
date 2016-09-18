@@ -7,6 +7,7 @@ class Project < ApplicationRecord
   dragonfly_accessor :picture
 
   before_save :generate_name_if_not_set
+  has_ancestry
 
   def creator
     user.try(:nickname) or "Anonymous"
@@ -14,6 +15,7 @@ class Project < ApplicationRecord
 
   def remix
     Project.new(
+        parent: self,
         source_code: self.source_code,
         picture: self.picture,
         name: "#{Faker::Color.color_name} #{Faker::Hipster.word} (copy of #{self.name})"

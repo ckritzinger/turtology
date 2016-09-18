@@ -1,0 +1,17 @@
+<div class="ide">
+  <div id="right">
+    <h3><%= @project.name %></h3>
+    <p>by <%= @project.creator %></p>
+    <textarea readonly="nocursor" name="code" id="code"><%= @project.source_code %></textarea>
+    <div>
+      <% if current_user.owns? @project %>
+          <%= link_to "Edit", edit_project_path(@project), {class: :button} %>
+      <% end %>
+      <%= link_to "Remix this project", clone_project_path(@project), {class: :button} %>
+    </div>
+  </div>
+  <div id="left">
+    <img class="project-picture" src="<%= @project.picture.url %>" alt="project picture">
+  </div>
+</div>
+

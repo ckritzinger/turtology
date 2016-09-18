@@ -1,15 +1,12 @@
 FactoryGirl.define do
-  factory :like do
-    project nil
-    user nil
-  end
   factory :project do
     name "MyString"
-    user nil
     source_code "MyText"
-    image_uid "MyString"
   end
   factory :user do
-    
+    sequence :email do |n|
+      "user-#{n}@example.com"
+    end
+    password "Password123"
   end
 end

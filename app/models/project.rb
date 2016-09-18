@@ -8,6 +8,10 @@ class Project < ApplicationRecord
 
   before_save :generate_name_if_not_set
 
+  def creator
+    user.try(:nickname) or "Anonymous"
+  end
+
   def remix
     Project.new(
         source_code: self.source_code,

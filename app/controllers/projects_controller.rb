@@ -11,6 +11,10 @@ class ProjectsController < ApplicationController
     render 'edit'
   end
 
+  def show
+    @project = Project.find(params[:project_id])
+  end
+
   def clone
     @project = Project.find(params[:project_id]).remix
     render 'edit'

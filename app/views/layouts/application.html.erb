@@ -15,8 +15,8 @@
 </head>
 <body class="<%= body_class %>">
 <div class="head">
-  <h1>Turtology</h1>
-  <p>Share, create, learn</p>
+  <a href="<%= root_path %>"><h1>Turtology</h1></a>
+  <p>create, share, learn</p>
   <div class='nav'>
     <% if user_signed_in? %>
         <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
@@ -32,7 +32,9 @@
   </div>
 </div>
 <%= render "flashes" -%>
-<%= yield %>
+<div id="content">
+  <%= yield %>
+</div>
 <%= render "javascript" %>
 <%= render "css_overrides" %>
 <%= render "logo_reference" %>

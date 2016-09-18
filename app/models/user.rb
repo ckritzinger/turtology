@@ -11,7 +11,11 @@ class User < ApplicationRecord
     self.likes.where(project: project).count > 0
   end
 
+  def owns?(project)
+    self.projects.where(id: project.id).count > 0
+  end
+
   def like!(project)
-    Like.create(user: self, project: project)
+    Like.where(user: self, project: project).first_or_create
   end
 end

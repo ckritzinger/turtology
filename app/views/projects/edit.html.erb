@@ -1,33 +1,30 @@
-<div id="content">
-  <div class="inner">
-    <div class="ide">
-      <div id="right">
-        <%= form_tag save_path, remote: true, id: 'project-form' do -%>
-            <%= text_field_tag 'name', @project.name, placeholder: 'Give your project a name' %>
-            <textarea name="code" id="code"><%= @project.source_code %></textarea>
-            <%= hidden_field_tag 'imagedata' -%>
-            <%= hidden_field_tag 'project_id', @project.id -%>
-        <% end -%>
-        <div>
-          <input type="button" onClick="run(1,false);" value="run slowly" style="font-weight: bold;"/>
-          <input type="button" onClick="run(maxSpeed,false);" value="run fast"/>
-          <% if current_user %>
-              <input type="button" onClick="saveProject();" value="save project"/><span id="saved-notification">Saved</span>
-          <% end %>
-        </div>
-        <div class="stdout">
-          <h5>Text Output</h5>
-          <div id="textOutput"></div>
-        </div>
-      </div>
-      <div id="left">
-        <canvas id="canvas" width="500" height="500">
-          Your browser doesn't support canvas tags. Please upgrade to a modern browser.
-        </canvas>
-        <div id="turtle">
-          <embed width="20" height="20" id='sprite' src="<%= image_path 'turtle.svg' %>"/>
-        </div>
-      </div>
+<div class="ide">
+  <div id="right">
+    <%= form_tag save_path, remote: true, id: 'project-form' do -%>
+        <%= text_field_tag 'name', @project.name, placeholder: 'Give your project a name' %>
+        <textarea name="code" id="code"><%= @project.source_code %></textarea>
+        <%= hidden_field_tag 'imagedata' -%>
+        <%= hidden_field_tag 'project_id', @project.id -%>
+    <% end -%>
+    <div>
+      <input type="button" onClick="run(1,false);" value="run slowly" style="font-weight: bold;"/>
+      <input type="button" onClick="run(maxSpeed,false);" value="run fast"/>
+      <% if current_user %>
+          <input type="button" onClick="saveProject();" value="save project"/><span id="saved-notification">Saved</span>
+      <% end %>
+    </div>
+    <div class="stdout">
+      <h5>Text Output</h5>
+      <div id="textOutput"></div>
+    </div>
+  </div>
+  <div id="left">
+    <canvas id="canvas" width="500" height="500">
+      Your browser doesn't support canvas tags. Please upgrade to a modern browser.
+    </canvas>
+    <div id="turtle">
+      <embed width="20" height="20" id='sprite' src="<%= image_path 'turtle.svg' %>"/>
     </div>
   </div>
 </div>
+

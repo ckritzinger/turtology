@@ -1,6 +1,9 @@
 .projects {
-    #saved-notification {
-      display: none;
-      padding-left: 1em;
-    }
+  #saved-notification {
+    display: none;
+    padding-left: 1em;
+  }
+  .project-picture {
+      border: 1px solid $base-border-color;
+  }
 }

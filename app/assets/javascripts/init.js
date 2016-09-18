@@ -70,11 +70,14 @@ $(document).ready(function() {
         console.log("found ide, initialising");
         cm = CodeMirror.fromTextArea(document.getElementById('code'), {
             lineNumbers: true,
-            placeholder: 'write some logo code\n(try "fd 50")'
+            placeholder: 'write some logo code\n(try "fd 50")',
+            readOnly: $("#code").attr("readonly") ? "nocursor" : false
         });
-        init('canvas', 'turtle', 'input', 'oldcode', 'textOutput');
-        clearcanvas();
-        run(1, false);
+        if($('#canvas').length) {
+            init('canvas', 'turtle', 'input', 'oldcode', 'textOutput');
+            clearcanvas();
+            run(1, false);
+        }
         $('#project-form').on('ajax:success',function(e,data,status,xhr){
             if(data.success) {
                 $('#saved-notification').fadeIn(500, function(){$('#saved-notification').fadeOut(1000)});

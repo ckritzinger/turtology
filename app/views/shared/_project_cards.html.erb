@@ -1,11 +1,12 @@
 <div class="cards">
   <% @projects.each do |project| %>
       <div class="card">
-        <div class="card-image" onclick="document.location.href='<%= edit_or_clone_path_for(project) %>'">
+        <div class="card-image" onclick="document.location.href='<%= project_path(project) %>'">
           <img src="<%= project.picture.url %>" alt="">
         </div>
         <div class="card-header">
           <%= project.name %>
+          <div class="author">@<%= project.creator %></div>
         </div>
         <div class="card-copy">
           <ul>
@@ -30,7 +31,7 @@
   <div class="new-project">
     <a href="<%= new_project_path %>">
       <%= fa_icon('plus') %><br/>
-      Create Something
+      Create Something New <br/> (and Awesome)
     </a>
   </div>
 </div>

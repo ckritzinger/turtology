@@ -86,7 +86,10 @@ Turtle.prototype.update = function() {
     if (this.visible && this.x >=0 && this.y >= 0 && this.x <= this.max_x && this.y <= this.max_y) {
         this.turtle.style.left = parseInt(this._left + this.x -10) + "px";
         this.turtle.style.top = parseInt(this._top + this.y-20) + "px";
-        this.sprite.setAttribute('transform','rotate('+(this.angle)+' 10 10)');
+        var rotate = 'rotate('+(this.angle + 90)+'deg)';
+        this.sprite.style['transform'] = rotate;
+        this.sprite.style['-ms-transform'] = rotate;
+        this.sprite.style['-webkit-transform'] = rotate;
     } else {
         this.turtle.style.left = "-10px";
         this.turtle.style.top = "-10px";

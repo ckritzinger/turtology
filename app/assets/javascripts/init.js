@@ -69,7 +69,8 @@ $(document).ready(function() {
     $('.ide').each(function() {
         console.log("found ide, initialising");
         cm = CodeMirror.fromTextArea(document.getElementById('code'), {
-            lineNumbers: true
+            lineNumbers: true,
+            placeholder: 'write some logo code\n(try "fd 50")'
         });
         init('canvas', 'turtle', 'input', 'oldcode', 'textOutput');
         clearcanvas();

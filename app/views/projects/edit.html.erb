@@ -1,10 +1,9 @@
 <div id="content">
   <div class="inner">
-    <%= link_to "Gallery", gallery_path, {class: 'back_link'} %>
     <div class="ide">
       <div id="right">
         <%= form_tag save_path, remote: true, id: 'project-form' do -%>
-            <%= text_field_tag 'name', @project.name %>
+            <%= text_field_tag 'name', @project.name, placeholder: 'Give your project a name' %>
             <textarea name="code" id="code"><%= @project.source_code %></textarea>
             <%= hidden_field_tag 'imagedata' -%>
             <%= hidden_field_tag 'project_id', @project.id -%>
@@ -26,7 +25,7 @@
           Your browser doesn't support canvas tags. Please upgrade to a modern browser.
         </canvas>
         <div id="turtle">
-          <embed width="20" height="20" id='sprite' src="turtle.svg"/>
+          <embed width="20" height="20" id='sprite' src="<%= image_path 'turtle.svg' %>"/>
         </div>
       </div>
     </div>

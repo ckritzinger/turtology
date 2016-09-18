@@ -13,5 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.turbolinks
+//= require jquery-modal/jquery.modal
+//= require codemirror/lib/codemirror
+//= require codemirror/addon/display/placeholder
 //= require_tree ./vendor
 //= require_tree .

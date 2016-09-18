@@ -11,9 +11,12 @@
   }
   .CodeMirror {
     border: 1px solid #eee;
-    height: auto;
-    max-height: 20em;
+    height: 20em;
     margin-bottom: $padding-default;
+  }
+  #code {
+    position: absolute;
+    bottom: -100px;
   }
   .stdout {
     margin-top: $padding-default;

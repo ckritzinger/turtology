@@ -4,6 +4,19 @@
     padding-left: 1em;
   }
   .project-picture {
-      border: 1px solid $base-border-color;
+    border: 1px solid $base-border-color;
+  }
+  #save-project {
+    .loading {
+      display: none;
+    }
+    &.clicked {
+      .ready {
+        display: none;
+      }
+      .loading {
+        display: block;
+      }
+    }
   }
 }

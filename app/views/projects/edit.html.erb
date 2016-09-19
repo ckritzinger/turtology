@@ -10,7 +10,11 @@
       <input type="button" onClick="run(1,false);" value="run slowly" style="font-weight: bold;"/>
       <input type="button" onClick="run(maxSpeed,false);" value="run fast"/>
       <% if current_user %>
-          <input type="button" onClick="saveProject();" value="save project"/><span id="saved-notification">Saved</span>
+          <a id="save-project" class="button" onClick="saveProject();">
+            <span class="ready">save project</span>
+            <span class="loading"><%= fa_icon("spinner", class: 'fa-spin', text: 'saving') %></span>
+          </a>
+          <span id="saved-notification">Saved</span>
       <% end %>
     </div>
     <div class="stdout">

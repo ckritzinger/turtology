@@ -61,6 +61,7 @@ function clearcanvas() {
 
 function saveProject(){
     $('#imagedata').val(canvas.toDataURL('image/png'));
+    $('#save-project').addClass('clicked');
     $('#project-form').submit();
 }
 

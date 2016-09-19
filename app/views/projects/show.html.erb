@@ -4,6 +4,9 @@
     <p>by <%= @project.creator %></p>
     <textarea readonly="nocursor" name="code" id="code"><%= @project.source_code %></textarea>
     <div>
+      <p>
+        Confused? Check out our <a href="#logo-reference" rel="modal:open">Logo Reference</a>
+      </p>
       <% if current_user.try(:owns?,@project) %>
           <%= link_to "Edit", edit_project_path(@project), {class: :button} %>
       <% end %>

@@ -4,7 +4,7 @@
     <p>by <%= @project.creator %></p>
     <textarea readonly="nocursor" name="code" id="code"><%= @project.source_code %></textarea>
     <div>
-      <% if current_user.owns? @project %>
+      <% if current_user.try(:owns?,@project) %>
           <%= link_to "Edit", edit_project_path(@project), {class: :button} %>
       <% end %>
       <%= link_to "Remix this project", clone_project_path(@project), {class: :button} %>

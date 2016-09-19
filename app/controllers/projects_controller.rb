@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :authenticate_user!, except: [:new, :clone]
+  before_action :authenticate_user!, except: [:new, :clone, :show]
   before_action :set_project, only: [:save]
 
   def index

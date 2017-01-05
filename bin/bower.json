@@ -1,0 +1,19 @@
+{
+  "name": "turtology",
+  "homepage": "https://github.com/ckritzinger/turtology",
+  "authors": [
+    "Carl Kritzinger <carl@fireid.com>"
+  ],
+  "description": "rails logo playground",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/components",
+    "test",
+    "tests"
+  ]
+}

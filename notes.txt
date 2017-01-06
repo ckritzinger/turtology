@@ -16,13 +16,13 @@ bin/setup
 out. Run `bundle install` first.
 bundle
 cd /var/lib/gems/2.3.0
+sudo gem install autoprefixer-rails
+#problem persists
+cd /var/lib/gems/2.3.0
 sudo gem install execjs
+#problem persists
 cd /vagrant/turtology
+sudo apt install nodejs -y
 bin/setup
 #problem presists
-cd /var/lib/gems/2.3.0
-sudo gem install autoprefixer-rails
-cd /vagrant/turtology
-#problem presists
-sudo apt install nodejs
 #a new error message appears (seems like old problem was fixed)

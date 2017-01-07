@@ -22,7 +22,7 @@ Vagrant.configure("2") do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
-   config.vm.network "forwarded_port", guest: 3000, host: 3000
+  config.vm.network "forwarded_port", guest: 3000, host: 3000
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -43,15 +43,15 @@ Vagrant.configure("2") do |config|
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
   #
-   config.vm.provider "virtualbox" do |vb|
-  #   # Display the VirtualBox GUI when booting the machine
-  #   vb.gui = true
-  #
-  #   # Customize the amount of memory on the VM:
-     vb.memory = "1024"
-     vb.cpus = 2
-   end
-  #
+  config.vm.provider "virtualbox" do |vb|
+    #   # Display the VirtualBox GUI when booting the machine
+    #   vb.gui = true
+    #
+    #   # Customize the amount of memory on the VM:
+    vb.memory = "1024"
+    vb.cpus = 2
+  end
+
   # View the documentation for the provider you are using for more
   # information on available options.
 
@@ -65,17 +65,16 @@ Vagrant.configure("2") do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
-   config.vm.provision "shell", inline: <<-SHELL
-     apt-get update
-     sudo apt-get update
-     sudo apt-get install build-essential -y
-     sudo apt-get install libz-dev -y
-     sudo apt-get install ruby-full -y
-     sudo apt-get install libpq-dev -y
-     sudo apt-get install libwebkit-dev -y
-     sudo apt-get install qt5-qmake qt5-default libqt5webkit5-dev -y
-     sudo gem install bundler --conservative
-     
-    # apt-get install -y apache2
-   SHELL
+  config.vm.provision "shell", inline: <<-SHELL
+    apt-get update
+    sudo apt-get update
+    sudo apt-get install build-essential -y
+    sudo apt-get install libz-dev -y
+    sudo apt-get install ruby-full -y
+    sudo apt-get install libpq-dev -y
+    sudo apt-get install libwebkit-dev -y
+    sudo apt-get install qt5-qmake qt5-default libqt5webkit5-dev -y
+    sudo apt-get install nodejs postgresql
+    sudo gem install bundler
+  SHELL
 end

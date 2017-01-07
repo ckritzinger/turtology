@@ -16,6 +16,7 @@ u = User.create!(
 p1 = Project.create(
     user: u,
     name: 'tree',
+    picture: File.new("#{Rails.root}/public/tree.png"),
     source_code: <<-SRC
      TO tree :size
        if :size < 5 [forward :size back :size stop]
@@ -37,4 +38,3 @@ p1 = Project.create(
      tree 150
 SRC
 )
-p1.recreate_image!

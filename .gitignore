@@ -12,3 +12,5 @@
 /tags
 /tmp/*
 dragonfly
+.vagrant
+*.log

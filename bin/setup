@@ -11,6 +11,8 @@ gem install bundler --conservative
 bundle check || bundle install
 
 # Set up database and add any development seed data
+USER_NAME=$(whoami)
+psql postgres -tAc "SELECT 1 FROM pg_roles WHERE rolname='$USER_NAME'" | grep "1" || sudo -u postgres createuser -s $USER_NAME
 bin/rake dev:prime
 
 # Add binstubs to PATH via export PATH=".git/safe/../../bin:$PATH" in ~/.zshenv

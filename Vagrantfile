@@ -74,7 +74,7 @@ Vagrant.configure("2") do |config|
     sudo apt-get install libpq-dev -y
     sudo apt-get install libwebkit-dev -y
     sudo apt-get install qt5-qmake qt5-default libqt5webkit5-dev -y
-    sudo apt-get install nodejs postgresql
+    sudo apt-get install nodejs postgresql -y
     sudo gem install bundler
   SHELL
 end
